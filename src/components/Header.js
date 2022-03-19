@@ -4,6 +4,7 @@ import {selectUserName, selectUserPhoto,setUserLogin,setSignOut} from '../featur
 import {useSelector,useDispatch} from 'react-redux'
 import {auth,provider} from '../firebase'
 import {useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Header() {
 
@@ -20,6 +21,7 @@ function Header() {
                     email: user.email,
                     photo: user.photoURL
                 }))
+
             }
         })
     },[])
@@ -47,7 +49,9 @@ function Header() {
 
   return (
     <Nav>
+        <Link to="/">
         <Logo src="/images/logo.svg"/>
+        </Link>
         {
             !userName ?
             <LoginContainer>
@@ -56,10 +60,12 @@ function Header() {
             :
             <>
             <NavMenu>
+                <Link to="/">
                 <a>
                     <img src="/images/home-icon.svg"/>
                     <span>HOME</span>
                 </a>
+                </Link>
                 <a>
                     <img src="/images/search-icon.svg"/>
                     <span>SEARCH</span>
@@ -117,6 +123,7 @@ const NavMenu = styled.div`
         display:flex;
         align-items:center;
         padding:0 12px;
+        text-decoration:none;
         img{
             height:20px;
         }
@@ -125,6 +132,7 @@ const NavMenu = styled.div`
             letter-spacing:1.42px;
             cursor:pointer;
             position:relative;
+            color:white;
 
             &:after{
                 content:"";
