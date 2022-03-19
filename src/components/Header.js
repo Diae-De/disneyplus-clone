@@ -20,7 +20,8 @@ function Header() {
                     email: user.email,
                     photo: user.photoURL
                 }))
-                history.push("/")
+
+                
             }
         })
     },[])

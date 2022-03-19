@@ -6,6 +6,7 @@ import {useHistory} from 'react-router-dom'
 
 function Detail() {
 
+    const history = useHistory()
     const {id} = useParams();
     const [movie,setMovie] = useState({});
     useEffect(()=>{
@@ -14,10 +15,8 @@ function Detail() {
         .get()
         .then((doc)=>{
             if(doc.exists) {
-                    setMovie(doc.data());
+                setMovie(doc.data());                  
             }
-
-            history.push("/detail/:id")
         })
     },[])
 
