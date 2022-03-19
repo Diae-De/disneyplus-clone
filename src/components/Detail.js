@@ -2,6 +2,7 @@ import React,{ useEffect,useState} from 'react'
 import styled from 'styled-components'
 import {useParams} from 'react-router-dom'
 import db from '../firebase'
+import {useHistory} from 'react-router-dom'
 
 function Detail() {
 
@@ -15,6 +16,8 @@ function Detail() {
             if(doc.exists) {
                     setMovie(doc.data());
             }
+
+            history.push("/detail/:id")
         })
     },[])
 
